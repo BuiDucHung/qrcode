@@ -58,15 +58,16 @@ const QrReader = () => {
   }, [qrOn]);
 
   return (
-    <div className="qr-reader">
+    <div className="qr-reader" style={{ position: "relative", overflow: "hidden" }}>
       {/* QR */}
-      <video ref={videoEl}></video>
-      <div ref={qrBoxEl} className="qr-box" style={{opacity: 0.5}}>
+      <video ref={videoEl} className="video-feed"></video>
+      <div ref={qrBoxEl} className="qr-box">
         <img
           src={QrFrame}
           alt="Qr Frame"
           width={256}
-          height={256}
+          height={500}
+          style={{ width: '100%' }}
           className="qr-frame"
         />
       </div>
@@ -83,6 +84,13 @@ const QrReader = () => {
           Scanned Result: {scannedResult}
         </p>
       )}
+      {/* Overlay */}
+      <div className="overlay">
+        <div className="top"></div>
+        <div className="left"></div>
+        <div className="right"></div>
+        <div className="bottom"></div>
+      </div>
     </div>
   );
 };
